@@ -35,7 +35,7 @@ node {
 	 stage('analyze') {
 	    def imageLine = 'node7:latest'
             writeFile file: 'anchore_images', text: imageLine
-            anchore name: 'anchore_images
+            anchore name: 'anchore_images'
 		 
 	 }
 }
