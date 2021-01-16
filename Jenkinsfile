@@ -30,9 +30,11 @@ node {
             } 
                 echo "Trying to Push Docker Build to DockerHub"
 	    
-   stage('analyze')
+	 stage('analyze'){
 	    def imageLine = 'node7:latest'
          writeFile file: 'anchore_images', text: imageLine
           anchore name: 'anchore_images
+		 
+	 }
     }
 }
