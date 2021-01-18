@@ -26,8 +26,13 @@ node {
                 echo "Trying to Push Docker Build to DockerHub"
 	    
      }
+	stage('analyze') {
+            steps {
+                sh 'echo "docker.io/angadi77/signing:latest `pwd`/Dockerfile" > anchore_images'
+                anchore name: 'anchore_images'
+            }
+        }
 	
 	
 	
-	 
 }
