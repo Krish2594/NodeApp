@@ -32,10 +32,10 @@ node {
 	    
      }
 	
-	 stage('analyze') {
-	    def imageLine = 'node7:latest'
-            writeFile file: 'anchore_images', text: imageLine
-            anchore name: 'anchore_images'
+	 stage('Analyze with Anchore plugin') {
+         writeFile file: 'anchore_images', text: imageLine
+         anchore name: 'anchore_images'
+
 		 
 	 }
 }
