@@ -13,12 +13,7 @@ node {
         app = docker.build("angadi77/signing")
     }
 
-    stage('Test image') {
-        
-        app.inside {
-            echo "Tests passed"
-        }
-    }
+    
 
      stage('Push image') {
         /* 
