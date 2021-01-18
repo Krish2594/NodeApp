@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        sudo app = docker.build("angadi77/signing")
+        app = docker.build("angadi77/signing")
     }
 
     stage('Test image') {
@@ -20,7 +20,7 @@ node {
         }
     }
 
-    stage('Push image') {
+     stage('Push image') {
         /* 
 			You would need to first register with DockerHub before you can push images to your account
 		*/
