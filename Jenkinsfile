@@ -27,7 +27,7 @@ node {
 	    
      }
 	stage('analyze') {
-             def imageLine = "https://registry.hub.docker.com/angadi77/signing"
+             def imageLine = "https://registry.hub.docker.com/angadi77/signing:latest"
             writeFile file: 'anchore_images', text: imageLine
             anchore name: 'anchore_images', bailOnFail: false, bailOnPluginFail: false, engineRetries: '1200'
         }
