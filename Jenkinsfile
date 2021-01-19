@@ -27,10 +27,9 @@ node {
 	    
      }
 	stage('analyze') {
-            steps {
-                sh 'echo "docker.io/angadi77/signing:latest `pwd`/Dockerfile" > anchore_images'
-                anchore name: 'anchore_images'
-            }
+             def imageLine = "https://registry.hub.docker.com/angadi77/signing"
+            writeFile file: 'anchore_images', text: imageLine
+            anchore name: 'anchore_images', bailOnFail: false, bailOnPluginFail: false, engineRetries: '1200'
         }
 	
 	
