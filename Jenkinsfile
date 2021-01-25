@@ -26,11 +26,15 @@ node {
                 echo "Trying to Push Docker Build to DockerHub"
 	    
      }
-	stage('analyze') {
-             def imageLine = "docker.io/angadi77/signing:latest"
+	stage('Analyze'){
+       steps {
+        script {
+            def imageLine = "https://registry.hub.docker.com/angadi77/signing:latest"
             writeFile file: 'anchore_images', text: imageLine
+            anchore name: 'anchore_images'
         }
-	
+    }
+}
 	
 	
 }
