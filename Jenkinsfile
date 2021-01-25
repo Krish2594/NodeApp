@@ -29,7 +29,8 @@ node {
 	stage('Analyze'){
             def imageLine = "docker.io/angadi77/signing:latest"
             writeFile file: 'anchore_images', text: imageLine
-            anchore name: 'anchore_images'
+            anchore name: 'anchore_images', bailOnFail: false, bailOnPluginFail: false, engineRetries: '1200'
+
         
    
 }
